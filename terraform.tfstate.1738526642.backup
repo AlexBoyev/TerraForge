@@ -1,0 +1,179 @@
+{
+  "version": 4,
+  "terraform_version": "1.10.5",
+  "serial": 869,
+  "lineage": "6294708e-2135-42e2-aca2-d0496471ad26",
+  "outputs": {
+    "grafana_url": {
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    "nginx_url": {
+      "value": "http://localhost",
+      "type": "string"
+    },
+    "prometheus_url": {
+      "value": "http://localhost:9090",
+      "type": "string"
+    },
+    "webapp_url": {
+      "value": "http://localhost:5001",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "module": "module.grafana",
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "service_image",
+      "provider": "provider[\"registry.terraform.io/kreuzwerker/docker\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "build": [],
+            "force_remove": null,
+            "id": "sha256:5c0692a901547aefc789c745df29d2ab136cfee24b10ad33c1509b67fb6ed024grafana/grafana:8.2.2",
+            "image_id": "sha256:5c0692a901547aefc789c745df29d2ab136cfee24b10ad33c1509b67fb6ed024",
+            "keep_locally": null,
+            "name": "grafana/grafana:8.2.2",
+            "platform": null,
+            "pull_triggers": null,
+            "repo_digest": "grafana/grafana@sha256:b338711d103c017c28be8496d2b3128cccce7b13fa5768b8fc3c6067ca54bdb1",
+            "triggers": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.nginx",
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "service_image",
+      "provider": "provider[\"registry.terraform.io/kreuzwerker/docker\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "build": [],
+            "force_remove": null,
+            "id": "sha256:9bea9f2796e236cb18c2b3ad561ff29f655d1001f9ec7247a0bc5e08d25652a1nginx:latest",
+            "image_id": "sha256:9bea9f2796e236cb18c2b3ad561ff29f655d1001f9ec7247a0bc5e08d25652a1",
+            "keep_locally": null,
+            "name": "nginx:latest",
+            "platform": null,
+            "pull_triggers": null,
+            "repo_digest": "nginx@sha256:0a399eb16751829e1af26fea27b20c3ec28d7ab1fb72182879dcae1cca21206a",
+            "triggers": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.postgres",
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "service_image",
+      "provider": "provider[\"registry.terraform.io/kreuzwerker/docker\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "build": [],
+            "force_remove": null,
+            "id": "sha256:844163899fc215e0c1deb58b0ec835feb53e40947a1cecb8a31f4bce1a7f9f8epostgres:13-alpine",
+            "image_id": "sha256:844163899fc215e0c1deb58b0ec835feb53e40947a1cecb8a31f4bce1a7f9f8e",
+            "keep_locally": null,
+            "name": "postgres:13-alpine",
+            "platform": null,
+            "pull_triggers": null,
+            "repo_digest": "postgres@sha256:bd4c527d7e39eb6d71c36c5b89665bfe6436508d44ac399d1537bbb1c2ffa55c",
+            "triggers": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.postgres_volume",
+      "mode": "managed",
+      "type": "docker_volume",
+      "name": "volume",
+      "provider": "provider[\"registry.terraform.io/kreuzwerker/docker\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "driver": "local",
+            "driver_opts": null,
+            "id": "postgres_data",
+            "labels": [],
+            "mountpoint": "/var/lib/docker/volumes/postgres_data/_data",
+            "name": "postgres_data"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjEifQ=="
+        }
+      ]
+    },
+    {
+      "module": "module.prometheus",
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "service_image",
+      "provider": "provider[\"registry.terraform.io/kreuzwerker/docker\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "build": [],
+            "force_remove": null,
+            "id": "sha256:c10e9cbf22cd70dc656320cffe4f42347f114702a061395d586b492386720be0prom/prometheus:v2.31.1",
+            "image_id": "sha256:c10e9cbf22cd70dc656320cffe4f42347f114702a061395d586b492386720be0",
+            "keep_locally": null,
+            "name": "prom/prometheus:v2.31.1",
+            "platform": null,
+            "pull_triggers": null,
+            "repo_digest": "prom/prometheus@sha256:a8779cfe553e0331e9046268e26c539fa39ecf90d59836d828163e65e8f4fa35",
+            "triggers": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.webapp",
+      "mode": "managed",
+      "type": "docker_image",
+      "name": "service_image",
+      "provider": "provider[\"registry.terraform.io/kreuzwerker/docker\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "build": [],
+            "force_remove": null,
+            "id": "sha256:6331e4375830e57f9b00113fc20b969a535bf4f2dec25d61c0450dbfbff15f19local/webapp:latest",
+            "image_id": "sha256:6331e4375830e57f9b00113fc20b969a535bf4f2dec25d61c0450dbfbff15f19",
+            "keep_locally": null,
+            "name": "local/webapp:latest",
+            "platform": null,
+            "pull_triggers": null,
+            "repo_digest": "",
+            "triggers": null
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

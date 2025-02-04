@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]  # inside the container
+
+  - job_name: "webapp"
+    static_configs:
+      - targets: ["webapp:5000"]     # Docker network name "webapp"
