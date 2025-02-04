@@ -77,4 +77,4 @@ terraform destroy -auto-approve
 Service	URL
 Nginx Proxy	http://localhost
 Prometheus	http://localhost/Prometheus
-Grafana	http://localhost/Grafana
+Grafana	    http://localhost/Grafana
