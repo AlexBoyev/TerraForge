@@ -20,6 +20,8 @@ TerraForge uses Terraform modules to create and manage the following Docker reso
 ---
 
 ## 📁 Project Structure
+```plaintext
+.
 ├── .terraform
 │   ├── modules
 │   │   └── modules.json
