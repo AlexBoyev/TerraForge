@@ -55,7 +55,7 @@ TerraForge uses Terraform modules to create and manage the following Docker reso
 ├── terraform.tfvars
 ├── tfplan
 └── variables.tf
-
+```
 ## 🖥️ Command Flow
 
 **Terraform Commands:**
